@@ -2,7 +2,7 @@ package dev.insideyou
 package buildinfo
 package build
 
-trait Dependencies extends BuildInfoProvider
+type Dependencies = BuildInfoProvider
 
 trait BuildInfoProvider:
   def info: Info

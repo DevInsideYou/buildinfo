@@ -6,9 +6,8 @@ object BusinessLogic:
   def make(dependencies: Dependencies): Boundary =
     new:
       override lazy val info: Info =
-        dependencies.info
+        dependencies.info.tap(log)
 
-  def make(buildInfoProvider: BuildInfoProvider): Boundary =
-    make:
-      new Dependencies:
-        export buildInfoProvider.*
+      private def log(info: Info): Unit =
+        println:
+          s"Retrieved: ${Console.GREEN}$info${Console.RESET}"
